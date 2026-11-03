@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EducaWeb | Cursos en línea</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="topbar">
+        <a href="#" class="brand" onclick="showHome(); return false;">
+            <span class="brand-icon">E</span>
+            <span>Educa<span class="brand-light">Web</span></span>
+        </a>
+
+        <nav>
+            <a href="#courseSection" onclick="showHome()">Cursos</a>
+            <a href="#nosotros" onclick="showAbout()">Nosotros</a>
+            <button id="navAction" class="nav-button" onclick="openAuth()">
+                Iniciar sesión
+            </button>
+        </nav>
+    </header>
+
+    <main id="homeView" class="home-layout">
+
+        <!-- LADO IZQUIERDO: LOGIN Y PERFIL -->
+        <aside class="login-side">
+            <div class="wave wave-one"></div>
+            <div class="wave wave-two"></div>
+
+            <div class="login-content">
+
+                <div id="loginBox" class="login-box">
+                    <div class="login-symbol">✦</div>
+
+                    <h2>Iniciar Sesión</h2>
+                    <p class="login-description">
+                        Ingresa a tu cuenta para comenzar a aprender.
+                    </p>
+
+                    <form id="loginForm">
+
+                        <label for="loginUser">Usuario o correo:</label>
+                        <input
+                            type="text"
+                            id="loginUser"
+                            placeholder="Ingrese su usuario"
+                            required
+                        >
+
+                        <label for="loginPassword">Contraseña:</label>
+                        <input
+                            type="password"
+                            id="loginPassword"
+                            placeholder="Ingrese su contraseña"
+                            required
+                        >
+
+                        <p id="loginMessage" class="login-message"></p>
+
+                        <button type="submit" class="login-button">
+                            Iniciar Sesión
+                        </button>
+                    </form>
+
+                    <p class="register-text">
+                        ¿No tienes cuenta?
+                        <button onclick="openRegister()">
+                            Regístrate aquí
+                        </button>
+                    </p>
+                </div>
+
+                <!-- Se muestra cuando el usuario inicia sesión -->
+                <div id="userBox" class="user-box hidden">
+                    <div class="user-avatar">👤</div>
+
+                    <span class="user-welcome">BIENVENIDO</span>
+                    <h2 id="userName">Usuario</h2>
+                    <p id="userRole">Estudiante</p>
+
+                    <div class="user-divider"></div>
+
+                    <button class="user-panel-button"
+                        onclick="currentUser?.role === 'admin' ? showAdmin() : showDashboard()">
+                        Mi panel
+                    </button>
+
+                    <button class="logout-button" onclick="logout()">
+                        <span>↪</span> Cerrar sesión
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="left-footer">
+                EDUCAWEB · APRENDE SIN LÍMITES
+            </div>
+        </aside>
+
+        <!-- LADO DERECHO: CURSOS -->
+        <section class="courses-side" id="courseSection">
+
+            <div class="courses-heading">
+                <span class="eyebrow">PLATAFORMA EDUCATIVA</span>
+
+                <h1>Bienvenido a EducaWeb</h1>
+
+                <p>
+                    Descubre nuevas habilidades y aprende con nuestros
+                    cursos disponibles.
+                </p>
+            </div>
+
+            <div id="courseGrid" class="course-grid">
+                <!-- JavaScript genera las tarjetas -->
+            </div>
+
+            <section id="nosotros" class="about-section">
+                <h2>Aprende. Crece. Avanza.</h2>
+                <p>
+                    EducaWeb es una plataforma educativa diseñada para
+                    facilitar el aprendizaje en línea mediante cursos,
+                    contenido interactivo y evaluaciones.
+                </p>
+            </section>
+
+            <footer class="main-footer">
+                © 2026 EducaWeb · Plataforma de aprendizaje en línea - Jonathan Javier Del Cid Hernandez - 0901-25-8900
+            </footer>
+
+        </section>
+
+    </main>
+
+    <!-- CONTENIDO DE PANELES Y CURSOS -->
+    <main id="contentView" class="content-view hidden"></main>
+
+    <!-- MODALES -->
+    <div id="modalRoot"></div>
+
+    <!-- NOTIFICACIONES -->
+    <div id="toast" class="toast"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
